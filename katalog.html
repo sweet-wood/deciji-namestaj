@@ -18,39 +18,36 @@
         .gallery { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 40px; 
+            gap: 50px; 
             max-width: 1400px; 
             margin: 0 auto 100px; 
             padding: 0 20px; 
         }
         
-        .item { text-align: center; background: #fff; padding-bottom: 20px; }
+        .item { text-align: center; background: #fff; }
         .item img { 
             width: 100%; 
-            height: 450px; 
+            height: 480px; 
             object-fit: cover; 
             cursor: pointer; 
-            transition: 0.4s; 
+            transition: 0.5s ease; 
             border: 1px solid #f2f2f2;
         }
-        .item img:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .item img:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
 
-        .item-info { padding: 20px 10px; }
-        .item-title { font-size: 1em; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 5px; color: #000; }
-        .item-desc { color: #888; font-size: 0.8em; font-weight: 300; margin-bottom: 20px; min-height: 40px; }
-
-        .order-btn { display: inline-block; padding: 10px 25px; border: 1px solid var(--primary); text-decoration: none; color: var(--primary); font-size: 0.65em; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        .order-btn:hover { background: var(--primary); color: #fff; }
+        .item-info { padding: 30px 15px; }
+        .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 12px; color: #000; }
+        .item-desc { color: #666; font-size: 0.85em; font-weight: 300; line-height: 1.8; margin: 0 auto; max-width: 320px; }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
         .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
-        .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; }
+        .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
 
-        footer { text-align: center; padding: 60px; color: #aaa; font-size: 0.7em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #eee; }
+        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.75em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
 
         @media (max-width: 768px) {
             .gallery { grid-template-columns: 1fr; }
-            .item img { height: 380px; }
+            .item img { height: 400px; }
         }
     </style>
 </head>
@@ -60,63 +57,99 @@
 
 <header>
     <h1>Katalog</h1>
-    <p>Ručni rad iz Kovina</p>
+    <p>Zanatska preciznost i prirodni materijali</p>
 </header>
 
 <div class="gallery">
     <div class="item">
         <img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" alt="Ovčica Jasen" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Premium Ovčica</span><p class="item-desc">Jasen, prirodna vuna i ekološki vosak.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Stolica Ovčica</span>
+            <p class="item-desc">Ekskluzivni model izrađen od masiva jasena. Sedalni deo tapaciran prirodnom vunom. Završna obrada ekološkim voskom.</p>
+        </div>
     </div>
     <div class="item">
         <img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" alt="Irvas Jasen" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Premium Irvas</span><p class="item-desc">Masiv jasena u skandinavskom stilu.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Stolica Irvas</span>
+            <p class="item-desc">Kombinacija masiva jasena i vune. Ergonomski oblikovan naslon sa naglašenom teksturom plemenitog drveta.</p>
+        </div>
     </div>
     <div class="item">
         <img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" alt="Set Irvas Ovčica" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Kolekcija Jasen</span><p class="item-desc">Kombinacija naših najluksuznijih modela.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Premium Duo Set</span>
+            <p class="item-desc">Set stolica "Ovčica" i "Irvas" u natur obradi. Najčvršća konstrukcija od jasena za dugotrajnu upotrebu.</p>
+        </div>
     </div>
     <div class="item">
         <img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" alt="Zeka Meda" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Zeka & Meda Set</span><p class="item-desc">Komplet sto i stolice u pastelnim bojama.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Set Zeka & Meda</span>
+            <p class="item-desc">Komplet za igru od parene bukve i šperploče. Bojeno atestiranim vodenim bojama bezbednim za decu.</p>
+        </div>
     </div>
     <div class="item">
         <img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" alt="Oblak Bundeva" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Oblak & Bundeva</span><p class="item-desc">Unikatni oblici za maštovitu igru.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Set Oblak & Bundeva</span>
+            <p class="item-desc">Specifičan dizajn ploče stola u obliku oblaka. Stabilna konstrukcija sa masivnim drvenim nogarima.</p>
+        </div>
     </div>
     <div class="item">
         <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Klupica Polica" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Zeka Meda & Klupica</span><p class="item-desc">Kompletan kutak sa policom u obliku oblačka.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Sistem za sobu</span>
+            <p class="item-desc">Multifunkcionalna klupica i zidna polica u obliku oblaka. Kompletno rešenje za enterijer dečijeg kutka.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-i-sto-drvo-sper.jpg" alt="Sto Šper" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Minimalist Set</span><p class="item-desc">Čiste linije i prirodna šperploča.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Minimalist Nordic</span>
+            <p class="item-desc">Minimalistički sto i stolice od brezine šperploče vrhunskog kvaliteta. Čiste linije i prirodna natur obrada.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" alt="Igraonica" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Igraonica Serija</span><p class="item-desc">Izdržljivo i bezbedno za grupe dece.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Playroom Kolekcija</span>
+            <p class="item-desc">Stolice povećane otpornosti namenjene opremanju igraonica i vrtića. Testirana stabilnost i spojevi.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-igraonica.jpg" alt="Igraonica Fokus" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Classic Play</span><p class="item-desc">Bele stolice sa motivima za dečiju sobu.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Classic White</span>
+            <p class="item-desc">Tradicionalni modeli stolica u beloj pokrivnoj boji. Lako održavanje i otpornost na habanje.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Masiv Izrada" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Bukva & Jasen</span><p class="item-desc">Sirovi materijali pre finalne obrade.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Materijali u pripremi</span>
+            <p class="item-desc">Selektovani komadi bukovog i jasenovog masiva pre finalne faze obrade i montaže.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" alt="Radionica Šper" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Craftsmanship</span><p class="item-desc">Precizna obrada svakog detalja.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Zanatski detalj</span>
+            <p class="item-desc">Fokus na mašinsku i ručnu obradu ivica. Svaki detalj je fino brušen radi maksimalne bezbednosti dece.</p>
+        </div>
     </div>
     <div class="item">
         <img src="decije-stolice-izrada-radionica.jpg" alt="Radionica Final" onclick="openModal(this.src)">
-        <div class="item-info"><span class="item-title">Završna Kontrola</span><p class="item-desc">Spremni komadi pre isporuke.</p><a href="viber://chat?number=38162299151" class="order-btn">Viber Upit</a></div>
+        <div class="item-info">
+            <span class="item-title">Završna montaža</span>
+            <p class="item-desc">Pogled u radni proces u Kovinu. Ručna provera svakog komada nameštaja pre pakovanja.</p>
+        </div>
     </div>
 </div>
 
 <div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
 
-<footer>&copy; 2026 SWEET WOOD. Designed to last.</footer>
+<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.</footer>
 
 <script>
     function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
