@@ -5,45 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWEET WOOD | Nordic Design & Craftsmanship</title>
     <style>
-        :root { --primary: #121212; --accent: #d35400; --bg-dark: #121212; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #f4f4f4; background-color: var(--bg-dark); margin: 0; overflow-x: hidden; }
+        /* SCANDI BOJE I TIPOGRAFIJA */
+        :root { 
+            --primary: #1a1a1a; /* Tamno siva za tekst */
+            --accent: #d35400; /* Narandžasta za detalje */
+            --bg-light: #f9f9f9; /* Svetlo siva pozadina */
+            --text-main: #333;
+        }
         
-        header { padding: 80px 20px; text-align: center; border-bottom: 1px solid #222; }
-        header h1 { margin: 0; font-size: clamp(2.2em, 8vw, 3.8em); letter-spacing: 12px; text-transform: uppercase; font-weight: 200; color: #fff; }
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg-light); 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+        
+        header { 
+            padding: 80px 20px; 
+            text-align: center; 
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        header h1 { margin: 0; font-size: clamp(2.2em, 8vw, 3.8em); letter-spacing: 12px; text-transform: uppercase; font-weight: 200; color: var(--primary); }
         header p { font-size: 0.85em; letter-spacing: 4px; color: var(--accent); margin-top: 15px; text-transform: uppercase; }
 
         .hero-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
         
-        .hero-image { 
-            width: 100%; 
-            height: 70vh; /* Zauzima 70% visine ekrana */
-            object-fit: cover; 
-            border: 1px solid #222;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 40px;
-            display: block;
+        /* NOVI STIL ZA HERO CONTAINER SA FILTEROM */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* 70% visine ekrana */
+            margin-bottom: 50px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .hero-text { max-width: 600px; margin: 0 auto; font-weight: 200; font-size: 1.25em; letter-spacing: 1px; color: #ccc; }
+        .hero-image { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block;
+            /* PRIMENJUJEMO BLUR I SVETLI FILTER */
+            filter: blur(4px) brightness(1.05) contrast(0.95); /* Mekan, svetli Scandi ton */
+            transform: scale(1.04); /* Malo povecavamo da blur ne pokvari ivice */
+        }
 
-        .cta-container { margin-top: 60px; margin-bottom: 120px; }
+        /* OVO JE MOGUĆI TAMNI SLOJ, ALI ZA SCANDI STIL JE BOLJE BEZ NJEGA NA BELOJ SLICI */
+        /* .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.2); /* Veoma svetli, transparentni sloj */
+        } */
+
+        .hero-text { max-width: 700px; margin: 0 auto; font-weight: 200; font-size: 1.3em; letter-spacing: 1px; color: var(--text-main); }
+
+        .cta-container { margin-top: 70px; margin-bottom: 120px; }
         
         .btn-katalog { 
             display: inline-block; 
-            border: 1px solid #fff; 
-            color: #000;
+            border: 2px solid var(--primary); 
+            color: var(--primary);
             padding: 18px 50px; 
             text-decoration: none; 
             text-transform: uppercase; 
             letter-spacing: 3px; 
             font-size: 0.95em; 
             transition: 0.4s; 
-            background: #fff; /* Bel dugme na tamnoj podlozi - Scandi stil */
-            box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+            background: transparent;
+            font-weight: 400;
         }
-        .btn-katalog:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-3px); }
+        .btn-katalog:hover { background: var(--primary); color: #fff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        footer { text-align: center; padding: 80px; color: #333; font-size: 0.75em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #222; }
+        footer { text-align: center; padding: 80px; color: #888; font-size: 0.75em; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid #eee; background-color: #fff; }
     </style>
 </head>
 <body>
@@ -54,21 +94,18 @@
 </header>
 
 <div class="hero-section">
-    <img src="home-page-slika.jpg" alt="SWEET WOOD - Skandinavski dizajn dečijeg nameštaja jasen bukva" class="hero-image">
+    <div class="hero-container">
+        <img src="home-page-slika.jpg" alt="SWEET WOOD - Skandinavski dizajn dečijeg nameštaja belo drvo jasen bukva" class="hero-image">
+        </div>
     
     <p class="hero-text">
-        Inspirisani Nordic dizajnom, stvaramo nameštaj koji spaja čistu formu jasena i bezbednost za vaše dete.
+        Inspirisani Nordic dizajnom, stvaramo nameštaj od plemenitog masiva jasena i bukve. Spoj prirodnih materijala i beskompromisne bezbednosti za vaše dete.
     </p>
     
     <div class="cta-container">
         <a href="katalog.html" class="btn-katalog">Pogledaj katalog</a>
     </div>
 </div>
-
-<footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY.</footer>
-
-</body>
-</html>
 
 <footer>&copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY.</footer>
 
