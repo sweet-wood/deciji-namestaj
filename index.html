@@ -1,164 +1,114 @@
-<!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dečiji Nameštaj - Ručna Izrada | Jasen i Bukva | Kovin</title>
+    <title>Dečiji Nameštaj Kovin | Ručna Izrada od Masiva</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #d35400;
-            --light: #f8f9fa;
-            --text: #34495e;
-        }
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text); 
-            background-color: #f0f2f5; 
-            margin: 0; 
-            padding: 0;
-        }
-        header { 
-            background: linear-gradient(135deg, var(--primary), #1a252f); 
-            color: #fff; 
-            padding: 60px 20px; 
-            text-align: center; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        header h1 { margin: 0; font-size: 2.5em; letter-spacing: 1px; }
-        header p { opacity: 0.9; font-size: 1.1em; margin-top: 10px; }
+        :root { --primary: #2c3e50; --accent: #d35400; --light: #f8f9fa; --text: #34495e; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); background-color: #f0f2f5; margin: 0; }
+        
+        header { background: linear-gradient(135deg, var(--primary), #1a252f); color: #fff; padding: 60px 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 2.2em; }
 
         .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; }
-        
-        .intro-card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-            text-align: center;
-        }
+        .intro-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); margin-bottom: 40px; text-align: center; }
 
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 25px; 
-        }
-
-        .gallery-item { 
-            background: white; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; cursor: zoom-in; }
         .gallery-item:hover { transform: translateY(-8px); }
-        
-        .gallery-item img { 
-            width: 100%; 
-            height: 300px; 
-            object-fit: cover; /* Ovo poravnava slike da budu iste visine */
-            display: block;
-        }
-        
-        .item-info { padding: 15px; border-top: 1px solid #eee; font-weight: 500; }
+        .gallery-item img { width: 100%; height: 350px; object-fit: cover; display: block; }
+        .item-info { padding: 15px; border-top: 1px solid #eee; font-weight: 600; text-align: center; background: #fff; }
 
-        .tech-specs { 
-            background: #fff; 
-            margin-top: 50px; 
-            padding: 40px; 
-            border-radius: 12px; 
-            border-left: 8px solid var(--accent);
-        }
+        /* Modal za uveličavanje slike */
+        .modal { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 80vh; border-radius: 8px; }
+        .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
-        .cta-section { 
-            text-align: center; 
-            margin: 60px 0; 
-            padding: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 12px;
-        }
-
-        .btn { 
-            display: inline-block; 
-            background: var(--accent); 
-            color: white; 
-            padding: 15px 35px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .tech-specs { background: #fff; margin-top: 50px; padding: 40px; border-radius: 12px; border-left: 8px solid var(--accent); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .cta-section { text-align: center; margin: 60px 0; padding: 50px; background: var(--primary); color: white; border-radius: 12px; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
         .btn:hover { background: #e67e22; transform: scale(1.05); }
-
-        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 0.9em; }
+        footer { text-align: center; padding: 40px; color: #7f8c8d; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Radionica Nameštaja Kovin</h1>
-    <p>Spoj tradicije, masiva i ekološke svesti</p>
+    <p>Ručna izrada od masiva jasena i bukve</p>
 </header>
 
 <div class="container">
     <div class="intro-card">
-        <h2>Dečiji kutak od čistog drveta</h2>
-        <p>Projektujemo i izrađujemo nameštaj koji raste sa vašom decom. Svaki komad je ručno rađen od selektovanog masiva jasena i bukve, uz vrhunsku završnu obradu.</p>
+        <h2>Kvalitet za najmlađe</h2>
+        <p>Svaki komad je unikat, ručno rađen od selektovanog drveta uz primenu ekoloških boja na vodenoj bazi. Nameštaj koji spaja dugovečnost i bezbednost.</p>
     </div>
 
     <div class="gallery">
-        <div class="gallery-item">
-            <img src="decija-stolica-1.jpg" alt="Dečija stolica od masiva jasena i bukve Kovin">
-            <div class="item-info">Premium Dečija Stolica</div>
+        <div class="gallery-item" onclick="openModal('decija-stolica-1.jpg')">
+            <img src="decija-stolica-1.jpg" alt="Dečija stolica jasen bukva masiv">
+            <div class="item-info">Dečija stolica (Masiv)</div>
         </div>
-        <div class="gallery-item">
-            <img src="decija-stolica-2.jpg" alt="Dečija stolica breza šper bukva">
-            <div class="item-info">Model: Breza/Bukva Masiv</div>
+        <div class="gallery-item" onclick="openModal('decija-stolica-2.jpg')">
+            <img src="decija-stolica-2.jpg" alt="Set sto i četiri stolice dečiji nameštaj">
+            <div class="item-info">Set: Sto i četiri stolice</div>
         </div>
-        <div class="gallery-item">
-            <img src="decija-stolica-3.jpg" alt="Dečiji nameštaj jasen ručni rad">
+        <div class="gallery-item" onclick="openModal('decija-stolica-3.jpg')">
+            <img src="decija-stolica-3.jpg" alt="Dečiji set jasen bukva Kovin">
             <div class="item-info">Trpezarijski set za decu</div>
         </div>
-        <div class="gallery-item">
-            <img src="decija-stolica-4.jpg" alt="Stolice za decu masiv bukva">
+        <div class="gallery-item" onclick="openModal('decija-stolica-4.jpg')">
+            <img src="decija-stolica-4.jpg" alt="Ergonomska stolica za decu">
             <div class="item-info">Ergonomski dizajn</div>
         </div>
-        <div class="gallery-item">
-            <img src="decija-stolica-5.jpg" alt="Dečiji sto i stolice Kovin">
-            <div class="item-info">Set: Sto i dve stolice</div>
+        <div class="gallery-item" onclick="openModal('decija-stolica-5.jpg')">
+            <img src="decija-stolica-5.jpg" alt="Komplet sto i stolice za decu">
+            <div class="item-info">Komplet za igru i učenje</div>
         </div>
-        <div class="gallery-item">
-            <img src="decija-stolica-6.jpg" alt="Zanatska radionica nameštaja">
-            <div class="item-info">Personalizovana izrada</div>
+        <div class="gallery-item" onclick="openModal('decija-stolica-6.jpg')">
+            <img src="decija-stolica-6.jpg" alt="Zanatska radionica nameštaja Kovin">
+            <div class="item-info">Zanatska obrada drveta</div>
         </div>
     </div>
 
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
     <div class="tech-specs">
-        <h3>Tehnički Standardi Izrade:</h3>
+        <h3>Tehnički Standardi:</h3>
         <ul>
-            <li><strong>Materijal:</strong> Isključivo masiv jasena i bukve sa sedištima od brezove šperploče.</li>
-            <li><strong>Zaštita:</strong> Ekološki lakovi i boje na vodenoj bazi (sigurno za decu i kućne ljubimce).</li>
-            <li><strong>Obrada:</strong> Svaka ivica je mašinski zaobljena i ručno fino polirana.</li>
-            <li><strong>Lokacija:</strong> Ponosno proizvedeno u Kovinu, Srbija.</li>
+            <li><strong>Materijali:</strong> Masiv jasena i bukve, sedišta od brezove šperploče.</li>
+            <li><strong>Završnica:</strong> Ekološke boje i lakovi na vodenoj bazi (sertifikovano za dečiju upotrebu).</li>
+            <li><strong>Bezbednost:</strong> Sve ivice su zaobljene i ručno polirane do visoke glatkoće.</li>
+            <li><strong>Lokacija:</strong> Ručna izrada u radionici u Kovinu.</li>
         </ul>
     </div>
 
     <div class="cta-section">
-        <h2>Želite unikatni komad za vaše dete?</h2>
-        <p>Kontaktirajte nas putem Instagrama za informacije o cenama i rokovima izrade.</p>
+        <h2>Poručite direktno od majstora</h2>
+        <p>Za sve informacije o cenama i modelima, posetite našu Instagram stranicu:</p>
         <br>
-        <a href="https://www.instagram.com/vas_instagram" class="btn">Pošaljite upit</a>
+        <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="btn">Poseti Instagram Profil</a>
     </div>
 
-    <footer>
-        &copy; 2026 Radionica Nameštaja Kovin. Sva prava zadržana.
-    </footer>
+    <footer>&copy; 2026 Dečiji Nameštaj Kovin. Sva prava zadržana.</footer>
 </div>
+
+<script>
+    function openModal(src) {
+        document.getElementById("myModal").style.display = "block";
+        document.getElementById("img01").src = src;
+    }
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+        let modal = document.getElementById("myModal");
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
+</script>
 
 </body>
 </html>
