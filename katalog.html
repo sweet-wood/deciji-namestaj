@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWEET WOOD | Kolekcija</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; }
         
-        /* NAVIGACIJA SA LINKOM ZA PORUČIVANJE */
         nav { 
             padding: 30px; 
             display: flex; 
@@ -18,15 +18,19 @@
             margin: 0 auto; 
         }
         .back-link { text-decoration: none; color: #888; font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; }
+        
         .order-nav-link { 
             text-decoration: none; 
-            color: var(--accent); 
+            color: var(--primary); 
             font-size: 0.8em; 
             font-weight: 600; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            border-bottom: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        .order-nav-link i { font-size: 1.4em; color: var(--primary); }
 
         header { padding: 40px 20px 80px; text-align: center; }
         header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
@@ -60,14 +64,25 @@
         .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
         .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
 
-        /* FOOTER SA DIREKTNIM LINKOM */
-        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.75em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
-        .footer-link { color: var(--primary); text-decoration: none; font-weight: 600; display: block; margin-bottom: 20px; letter-spacing: 2px; }
+        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
+        .footer-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px; 
+            letter-spacing: 2px; 
+        }
+        .footer-link i { font-size: 1.8em; }
 
         @media (max-width: 768px) {
             .gallery { grid-template-columns: 1fr; }
             .item img { height: 400px; }
             nav { padding: 20px; }
+            .order-nav-link span { display: none; } /* Na mobu ostaje samo ikonica radi mesta */
         }
     </style>
 </head>
@@ -75,7 +90,9 @@
 
 <nav>
     <a href="index.html" class="back-link">← Početna</a>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">Poruči putem Instagrama</a>
+    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">
+        <i class="fab fa-instagram"></i> <span>Poruči na Instagramu</span>
+    </a>
 </nav>
 
 <header>
@@ -173,8 +190,10 @@
 <div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
 
 <footer>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">ZAPRATI NAS & PORUČI NA INSTAGRAMU</a>
-    &copy; 2026 SWEET WOOD. SCANDINAVIAN QUALITY. KOVIN.
+    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">
+        <i class="fab fa-instagram"></i> <span>PORUČI NA INSTAGRAMU</span>
+    </a>
+    &copy; 2026 SWEET WOOD. KOVIN.
 </footer>
 
 <script>
