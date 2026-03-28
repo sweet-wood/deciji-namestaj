@@ -136,13 +136,15 @@
             <p class="item-desc">Specifičan dizajn ploče stola u obliku oblaka. Stabilna konstrukcija sa masivnim drvenim nogarima.</p>
         </div>
     </div>
+    
     <div class="item">
-        <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Klupica Polica" onclick="openModal(this.src)">
+        <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Klupica Polica Zeka Meda" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Sistem za sobu</span>
-            <p class="item-desc">Multifunkcionalna klupica i zidna polica u obliku oblačka. Kompletno rešenje za enterijer dečijeg kutka.</p>
+            <span class="item-title">Zeka, Meda & Oblačić</span>
+            <p class="item-desc">Kompletan set za dečiji kutak: stolice Zeka i Meda, višenamenska klupica i zidna polica u obliku oblačka. Spoj funkcionalnosti i mašte.</p>
         </div>
     </div>
+    
     <div class="item">
         <img src="decije-stolice-i-sto-drvo-sper.jpg" alt="Sto Šper" onclick="openModal(this.src)">
         <div class="item-info">
@@ -157,13 +159,15 @@
             <p class="item-desc">Stolice povećane otpornosti namenjene opremanju igraonica i vrtića. Testirana stabilnost i spojevi.</p>
         </div>
     </div>
+    
     <div class="item">
-        <img src="decije-stolice-igraonica.jpg" alt="Igraonica Fokus" onclick="openModal(this.src)">
+        <img src="decije-stolice-igraonica.jpg" alt="Igraonica Kolor" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Classic White</span>
-            <p class="item-desc">Tradicionalni modeli stolica u beloj pokrivnoj boji. Lako održavanje i otpornost na habanje.</p>
+            <span class="item-title">Classic Color</span>
+            <p class="item-desc">Tradicionalni modeli stolica u paleti pastelnih boja (roze, plava, siva...). Lako održavanje i otpornost na habanje.</p>
         </div>
     </div>
+    
     <div class="item">
         <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Masiv Izrada" onclick="openModal(this.src)">
         <div class="item-info">
@@ -199,6 +203,10 @@
 <script>
     function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
     function closeModal() { document.getElementById("myModal").style.display = "none"; }
+    window.onclick = function(event) {
+        let modal = document.getElementById("myModal");
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
 </script>
 
 </body>
