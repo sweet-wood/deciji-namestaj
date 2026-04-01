@@ -8,81 +8,25 @@
     <style>
         :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; padding: 0; }
-        
-        nav { 
-            padding: 30px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
+        nav { padding: 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
         .back-link { text-decoration: none; color: #888; font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; }
-        
-        .order-nav-link { 
-            text-decoration: none; 
-            color: var(--primary); 
-            font-size: 0.8em; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        .order-nav-link { text-decoration: none; color: var(--primary); font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
         header { padding: 40px 20px 80px; text-align: center; }
         header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
         header p { font-size: 0.75em; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-top: 15px; }
-
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 50px; 
-            max-width: 1400px; 
-            margin: 0 auto 100px; 
-            padding: 0 20px; 
-        }
-        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; max-width: 1400px; margin: 0 auto 100px; padding: 0 20px; }
         .item { text-align: center; background: #fff; }
-        .item img { 
-            width: 100%; 
-            height: 480px; 
-            object-fit: cover; 
-            cursor: pointer; 
-            transition: 0.5s ease; 
-            border: 1px solid #f2f2f2;
-        }
+        .item img { width: 100%; height: 480px; object-fit: cover; cursor: pointer; transition: 0.5s ease; border: 1px solid #f2f2f2; }
         .item img:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
-
         .item-info { padding: 30px 15px; }
         .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 12px; color: #000; }
         .item-desc { color: #666; font-size: 0.85em; font-weight: 300; line-height: 1.8; margin: 0 auto; max-width: 320px; }
-
-        /* MODAL ZA SLIKE */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
         .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
         .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; font-weight: 200; }
-
         footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
-        .footer-link { 
-            color: var(--primary); 
-            text-decoration: none; 
-            font-weight: 600; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px; 
-            letter-spacing: 2px; 
-        }
-
-        @media (max-width: 768px) {
-            .gallery { grid-template-columns: 1fr; }
-            .item img { height: 400px; }
-            nav { padding: 20px; }
-            .order-nav-link span { display: none; }
-        }
+        .footer-link { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; letter-spacing: 2px; }
+        @media (max-width: 768px) { .gallery { grid-template-columns: 1fr; } .item img { height: 400px; } nav { padding: 20px; } .order-nav-link span { display: none; } }
     </style>
 </head>
 <body>
@@ -95,7 +39,7 @@
 </nav>
 
 <header>
-    <h1>Katalog</h1>
+    <h1>Kolekcija</h1>
     <p>Zanatska preciznost iz Kovina</p>
 </header>
 
@@ -107,15 +51,13 @@
             <p class="item-desc">Ekskluzivni model izrađen od masiva jasena. Sedalni deo tapaciran prirodnom vunom. Završna obrada ekološkim voskom.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" alt="Irvas Jasen" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Stolica Irvas</span>
-            <p class="item-desc">Kombinacija masiva jasena i vune. Ergonomski oblikovan naslon sa naglašenom teksturom plemenitog drveta.</p>
+            <p class="item-desc">Kombinacija masiva jasena i vune. Ergonomski oblikovan naslon sa naglašenom teksturom drveta.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" alt="Set Irvas Ovčica" onclick="openModal(this.src)">
         <div class="item-info">
@@ -123,7 +65,6 @@
             <p class="item-desc">Set stolica "Ovčica" i "Irvas" u natur obradi. Najčvršća konstrukcija od jasena za dugotrajnu upotrebu.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" alt="Zeka Meda" onclick="openModal(this.src)">
         <div class="item-info">
@@ -131,7 +72,6 @@
             <p class="item-desc">Komplet za igru od parene bukve i šperploče. Bojeno atestiranim vodenim bojama bezbednim za decu.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" alt="Oblak Bundeva" onclick="openModal(this.src)">
         <div class="item-info">
@@ -139,89 +79,70 @@
             <p class="item-desc">Specifičan dizajn ploče stola u obliku oblaka. Stabilna konstrukcija sa masivnim drvenim nogarima.</p>
         </div>
     </div>
-
     <div class="item">
-        <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Komplet dečija soba" onclick="openModal(this.src)">
+        <img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" alt="Set za sobu" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Zeka, Meda & Oblačić</span>
-            <p class="item-desc">Kompletan set elemenata za dečiji kutak: stolice Zeka i Meda, višenamenska klupica i zidna polica u obliku oblačka.</p>
+            <p class="item-desc">Kompletan set za dečiji kutak: stolice Zeka i Meda, višenamenska klupica i zidna polica u obliku oblačka.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="decije-stolice-i-sto-drvo-sper.jpg" alt="Nordic Set" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Minimalist Nordic</span>
-            <p class="item-desc">Minimalistički sto i stolice od brezine šperploče vrhunskog kvaliteta. Čiste linije i prirodna natur obrada.</p>
+            <p class="item-desc">Minimalistički sto i stolice od brezine šperploče. Čiste linije i prirodna natur obrada.</p>
         </div>
     </div>
-
     <div class="item">
-        <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" alt="Igraonica Set" onclick="openModal(this.src)">
+        <img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" alt="Igraonica" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Playroom Kolekcija</span>
-            <p class="item-desc">Stolice povećane otpornosti namenjene opremanju igraonica i vrtića. Testirana stabilnost i spojevi.</p>
+            <p class="item-desc">Stolice povećane otpornosti namenjene opremanju igraonica. Testirana stabilnost i spojevi.</p>
         </div>
     </div>
-
     <div class="item">
-        <img src="decije-stolice-igraonica.jpg" alt="Šarene dečije stolice" onclick="openModal(this.src)">
+        <img src="decije-stolice-igraonica.jpg" alt="Classic Color" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Classic Color</span>
-            <p class="item-desc">Tradicionalni modeli stolica u paleti pastelnih boja (plava, roze, siva...). Lako održavanje i otpornost na habanje.</p>
+            <p class="item-desc">Tradicionalni modeli u paleti pastelnih boja (plava, roze, siva...). Lako održavanje i otpornost na habanje.</p>
         </div>
     </div>
-
     <div class="item">
-        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Priprema drveta" onclick="openModal(this.src)">
+        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Priprema masiva" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Priprema masiva</span>
-            <p class="item-desc">Gomila precizno isečenih elemenata od bukve i jasena. Ovi komadi masivnog drveta čekaju na višefazno ručno brušenje pre finalne montaže.</p>
+            <p class="item-desc">Precizno isečeni elementi od bukve i jasena spremni za brušenje. Svaki komad masiva prolazi kroz detaljnu ručnu obradu.</p>
         </div>
     </div>
-
     <div class="item">
         <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" alt="Brezova šperploča" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Kolekcija od breze</span>
-            <p class="item-desc">Nasloni u obliku irvasa i mede od vrhunske brezove šperploče. Vidljivi slojevi daju poseban pečat natur seriji nameštaja.</p>
+            <p class="item-desc">Elementi od vrhunske brezove šperploče. Karakteristični vidljivi slojevi daju poseban pečat natur seriji nameštaja.</p>
         </div>
     </div>
-
     <div class="item">
-        <img src="decije-stolice-izrada-radionica.jpg" alt="Završna montaža" onclick="openModal(this.src)">
+        <img src="decije-stolice-izrada-radionica.jpg" alt="Finalizacija" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Završna montaža</span>
-            <p class="item-desc">Pogled u radni proces u Kovinu. Ručna provera svakog komada nameštaja pre pakovanja i slanja.</p>
+            <span class="item-title">Finalna faza</span>
+            <p class="item-desc">Pogled u radni proces u Kovinu. Ručna provera svakog detalja pre nego što nameštaj krene put vašeg doma.</p>
         </div>
     </div>
 </div>
 
-<div id="myModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="img01">
-</div>
+<div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
 
 <footer>
     <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">
         <i class="fab fa-instagram"></i> <span>ZAPRATI NAS & PORUČI</span>
     </a>
-    <p>&copy; 2026 SWEET WOOD. KOVIN. RUČNA IZRADA.</p>
+    <p>&copy; 2026 SWEET WOOD. KOVIN.</p>
 </footer>
 
 <script>
-    function openModal(src) { 
-        document.getElementById("myModal").style.display = "block"; 
-        document.getElementById("img01").src = src; 
-    }
-    function closeModal() { 
-        document.getElementById("myModal").style.display = "none"; 
-    }
-    // Zatvori modal klikom van slike
-    window.onclick = function(event) {
-        let modal = document.getElementById("myModal");
-        if (event.target == modal) { modal.style.display = "none"; }
-    }
+    function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
+    function closeModal() { document.getElementById("myModal").style.display = "none"; }
+    window.onclick = function(event) { let m = document.getElementById("myModal"); if (event.target == m) { m.style.display = "none"; } }
 </script>
 
 </body>
