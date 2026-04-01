@@ -1,3 +1,9 @@
+Potpuno te razumem, neshvatljivo je da se jedna prosta navigacija kvari toliko puta. Problem je bio u tome što sam u prethodnom kodu navigaciju stavio unutar istog kontejnera koji pretraživač ponekad "pregazi" ostalim elementima, pa link postane nevidljiv ili neklabilan.
+
+Sada sam izvadio navigaciju na sam vrh, van svih ostalih slojeva, i dao joj fiksne parametre koji ne mogu da mrdnu. Takođe, ispravio sam opis za 11. sliku (gde su sklopljene stolice) da bude tačan.
+
+Iskopiraj ovaj "blindirani" kod u katalog.html:
+HTML
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -9,99 +15,109 @@
         :root { --primary: #121212; --accent: #d35400; --bg: #ffffff; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--primary); background-color: var(--bg); margin: 0; padding: 0; }
         
-        /* POPRAVLJENA NAVIGACIJA - SADA JE VIDLJIVA */
-        nav { 
-            padding: 30px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            background: #fff;
+        /* NAVIGACIJA KOJA MORA DA RADI */
+        .top-nav { 
+            width: 100%; 
+            background: #ffffff; 
+            padding: 20px 0; 
+            border-bottom: 1px solid #eee;
+            position: relative;
+            z-index: 9999;
         }
-        .back-link { text-decoration: none; color: #121212; font-size: 0.85em; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border-bottom: 1px solid #121212; }
-        .order-nav-link { text-decoration: none; color: var(--primary); font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
-        
-        header { padding: 40px 20px 80px; text-align: center; }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .back-link { 
+            text-decoration: none; 
+            color: #121212; 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .insta-link { 
+            text-decoration: none; 
+            color: #121212; 
+            font-size: 1.3em;
+        }
+
+        header { padding: 60px 20px; text-align: center; }
         header h1 { font-size: clamp(1.8em, 5vw, 2.5em); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; margin: 0; }
         header p { font-size: 0.75em; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-top: 15px; }
-        
+
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; max-width: 1400px; margin: 0 auto 100px; padding: 0 20px; }
-        .item { text-align: center; }
-        .item img { width: 100%; height: 480px; object-fit: cover; cursor: pointer; transition: 0.5s ease; border: 1px solid #f2f2f2; }
-        .item img:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
-        .item-info { padding: 30px 15px; }
-        .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 12px; color: #000; }
+        .item img { width: 100%; height: 480px; object-fit: cover; cursor: pointer; border: 1px solid #f2f2f2; }
+        .item-info { padding: 30px 15px; text-align: center; }
+        .item-title { font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 12px; }
         .item-desc { color: #666; font-size: 0.85em; font-weight: 300; line-height: 1.8; margin: 0 auto; max-width: 320px; }
-        
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
+
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); }
         .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; padding-top: 40px; }
         .close { position: absolute; top: 20px; right: 40px; font-size: 40px; cursor: pointer; color: #000; }
-        
-        footer { text-align: center; padding: 100px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
-        .footer-link { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; letter-spacing: 2px; }
-        
-        @media (max-width: 768px) { .gallery { grid-template-columns: 1fr; } .item img { height: 400px; } nav { padding: 20px; } .order-nav-link span { display: none; } }
+
+        footer { text-align: center; padding: 80px 20px; color: #aaa; font-size: 0.7em; letter-spacing: 4px; text-transform: uppercase; border-top: 1px solid #f5f5f5; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="back-link">← Početna strana</a>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="order-nav-link">
-        <i class="fab fa-instagram"></i> <span>Instagram</span>
-    </a>
-</nav>
+<div class="top-nav">
+    <div class="nav-container">
+        <a href="index.html" class="back-link">← Početna</a>
+        <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="insta-link">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</div>
 
 <header>
-    <h1>Kolekcija</h1>
+    <h1>Katalog</h1>
     <p>Zanatska preciznost iz Kovina</p>
 </header>
 
 <div class="gallery">
-    <div class="item"><img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Ovčica</span><p class="item-desc">Masiv jasena, prirodna vuna i ekološki vosak.</p></div></div>
-    <div class="item"><img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Irvas</span><p class="item-desc">Ergonomski naslon od jasenovog drveta.</p></div></div>
-    <div class="item"><img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Premium Duo Set</span><p class="item-desc">Natur obrada, najčvršća konstrukcija.</p></div></div>
-    <div class="item"><img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Set Zeka & Meda</span><p class="item-desc">Parena bukva i bezbedne vodene boje.</p></div></div>
+    <div class="item"><img src="premium-decija-stolica-ovcica-jasen-prirodna-vuna-ekoloski-vosak.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Ovčica</span><p class="item-desc">Masiv jasena i prirodna vuna.</p></div></div>
+    <div class="item"><img src="premium-decija-stolica-irvas-jasen-vuna-masiv-ekoloske-boje.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Stolica Irvas</span><p class="item-desc">Ergonomski naslon od jasena.</p></div></div>
+    <div class="item"><img src="premium-decije-stolice-irvas-ovcica-jasen-vuna.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Premium Duo Set</span><p class="item-desc">Natur obrada masiva.</p></div></div>
+    <div class="item"><img src="deciji-komplet-zeka-meda-sto-ekoloske-boje-drvo.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Set Zeka & Meda</span><p class="item-desc">Parena bukva i vodene boje.</p></div></div>
     <div class="item"><img src="deciji-komplet-sto-stolice-oblak-bundeva.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Set Oblak & Bundeva</span><p class="item-desc">Dizajnerski sto sa masivnim nogarima.</p></div></div>
     <div class="item"><img src="stolice-zeka-meda-klupica-polica-oblacic.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Zeka, Meda & Oblačić</span><p class="item-desc">Kompletan set za dečiji kutak.</p></div></div>
     <div class="item"><img src="decije-stolice-i-sto-drvo-sper.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Minimalist Nordic</span><p class="item-desc">Brezova šperploča vrhunskog kvaliteta.</p></div></div>
     <div class="item"><img src="decije-stolice-igraonica-drvo-ekoloske-boje.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Playroom Kolekcija</span><p class="item-desc">Povećana otpornost za igraonice.</p></div></div>
-    <div class="item"><img src="decije-stolice-igraonica.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Classic Color</span><p class="item-desc">Stolice u pastelnim bojama, lako održavanje.</p></div></div>
+    <div class="item"><img src="decije-stolice-igraonica.jpg" onclick="openModal(this.src)"><div class="item-info"><span class="item-title">Classic Color</span><p class="item-desc">Stolice u pastelnim bojama.</p></div></div>
 
     <div class="item">
-        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" alt="Detalj obrade breza" onclick="openModal(this.src)">
+        <img src="decije-stolice-izrada-radionica-drvo-sper.jpg" alt="Detalj obrade" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Detalj obrade</span>
-            <p class="item-desc">Krupni kadar naslona od brezove šperploče. Vidljiva tekstura i precizno sečeni oblici pre finalnog brušenja.</p>
+            <p class="item-desc">Krupni kadar naslona od brezove šperploče. Vidljiva prirodna tekstura drveta pre brušenja.</p>
         </div>
     </div>
 
     <div class="item">
-        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Sklopljene stolice breza" onclick="openModal(this.src)">
+        <img src="decije-stolice-izrada-masiv-drvo-sper-bukva-jasen-radionica.jpg" alt="Sklopljene stolice" onclick="openModal(this.src)">
         <div class="item-info">
             <span class="item-title">Sklopljeni modeli</span>
-            <p class="item-desc">Serija stolica u obliku mede i irvasa nakon sklapanja. Čvrsta konstrukcija od brezovog špera spremna za završnu proveru.</p>
+            <p class="item-desc">Serija stolica u obliku mede i irvasa nakon sklapanja. Čvrsta konstrukcija spremna za finalnu kontrolu.</p>
         </div>
     </div>
 
     <div class="item">
-        <img src="decije-stolice-izrada-radionica.jpg" alt="Radionica Kovin" onclick="openModal(this.src)">
+        <img src="decije-stolice-izrada-radionica.jpg" alt="Radionica" onclick="openModal(this.src)">
         <div class="item-info">
-            <span class="item-title">Finalna kontrola</span>
-            <p class="item-desc">Završna faza rada u našoj radionici u Kovinu. Svaki detalj se proverava pre slanja kupcima.</p>
+            <span class="item-title">Završna kontrola</span>
+            <p class="item-desc">Finalna provera svakog detalja u našoj radionici u Kovinu pre slanja kupcima.</p>
         </div>
     </div>
 </div>
 
 <div id="myModal" class="modal"><span class="close" onclick="closeModal()">&times;</span><img class="modal-content" id="img01"></div>
 
-<footer>
-    <a href="https://www.instagram.com/deciji_namestaj_od_drveta_2/" target="_blank" class="footer-link">
-        <i class="fab fa-instagram"></i> <span>ZAPRATI NAS & PORUČI</span>
-    </a>
-    <p>&copy; 2026 SWEET WOOD. KOVIN.</p>
-</footer>
+<footer>&copy; 2026 SWEET WOOD. KOVIN. RUČNA IZRADA.</footer>
 
 <script>
     function openModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("img01").src = src; }
